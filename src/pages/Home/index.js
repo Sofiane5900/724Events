@@ -15,7 +15,16 @@ import { useData } from "../../contexts/DataContext";
 
 
 const Page = () => {
-  const { last } = useData();
+  const { data } = useData();
+// Déclaration de la variable last
+const last =
+  // Vérifie si data existe et si data.events existe et a une longueur supérieure à 0
+  data && data.events && data.events.length > 0
+    // Si oui, assigne le dernier élément de data.events à last
+    ? data.events[data.events.length - 1]
+    // Sinon, assigne null à last
+    : null;
+
   
   return (
     <>
@@ -118,16 +127,19 @@ const Page = () => {
         </div>
       </main>
       <footer className="row">
-        <div className="col presta">
+      <div className="col presta">
           <h3>Notre derniére prestation</h3>
-          <EventCard
-            data-testid="last-event-card"
-            imageSrc={last?.cover}
-            title={last?.title}
-            date={new Date(last?.date)}
-            small
-            label="boom"
-          />
+          {last && (
+            <EventCard
+              data-testid="last-event-card"
+              imageSrc={last?.cover}
+              imageAlt={last?.description}
+              title={last?.title}
+              date={new Date(last?.date)}
+              small
+              label={last?.type}
+            />
+          )}
         </div>
         <div className="col contact">
           <h3>Contactez-nous</h3>
