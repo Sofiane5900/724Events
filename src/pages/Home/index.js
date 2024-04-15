@@ -129,7 +129,6 @@ const last =
         </div>
       </main>
       <footer className="row">
-
       <div className="col presta">
           <h3>Notre derniére prestation</h3>
           {last && (
@@ -138,7 +137,7 @@ const last =
               {({ setIsOpened }) => (  // Ajout de la fonction setIsOpened
             <EventCard
               onClick={() => setIsOpened(true)}
-              data-testid="last-event-card" // Ajout de l'attribut data-testid pour tester le composant
+              data-testid="last-event-card" 
               imageSrc={last?.cover}
               imageAlt={last?.description}
               title={last?.title}
@@ -150,7 +149,6 @@ const last =
             </Modal> 
           )}
         </div>
-
         <div className="col contact">
           <h3>Contactez-nous</h3>
           <address>45 avenue de la République, 75000 Paris</address>

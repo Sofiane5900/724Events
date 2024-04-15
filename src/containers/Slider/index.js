@@ -20,7 +20,7 @@ const Slider = () => {
   }, [data]);
 
   useEffect(() => {
-    // Déclencher le changement de carte toutes les 5 secondes
+    // Déclencher le changement d'image toutes les 5 secondes
     const interval = setInterval(() => {
       setIndex((prevIndex) =>
         prevIndex < sortedEvents.length - 1 ? prevIndex + 1 : 0

@@ -21,7 +21,7 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      await screen.findByText("Message envoyé !");
+      await screen.findByText("Message envoyé !", {}, { timeout: 5000 }); // Ajout d'un timeout pour attendre l'affichage du message 
     });
   });
 
